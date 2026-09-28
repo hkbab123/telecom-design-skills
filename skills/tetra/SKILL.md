@@ -86,7 +86,11 @@ Deep-dive explainers for the engineering theory behind each stage decision — l
 19. `19-functional-safety-technical-basis.md` — SIL, IEC 61508/61511, when it genuinely applies
 20. `20-interfacing-technical-basis.md` — how the PABX, SCADA, and dispatcher interfaces actually work mechanically
 21. `21-testing-commissioning-methodology.md` — drive/walk testing, FAT vs SAT, objective acceptance criteria
-22. `22-migration-path-broadband-mcptt.md` — 3GPP MCPTT, deployment models, TETRA/FRMCS's shared succession pattern
+22. `22-migration-path-broadband-mcptt.md` — 3GPP MCPTT, deployment models, TETRA/FRMCS's shared succession pattern; also covers phased no-downtime cutover from legacy comms onto TETRA
+23. `23-network-synchronization-timing.md` — GPS/SyncE/PTP timing sources, simulcast's tight-tolerance requirement, oscillator holdover during GNSS loss/jamming
+24. `24-cybersecurity-it-ot-governance.md` — IT/OT segmentation, IEC 62443/NIS2, RBAC and audit logging for core administration
+25. `25-dispatcher-console-control-room-ergonomics.md` — sizing dispatcher positions, GIS location integration, Disaster Recovery control room failover
+26. `26-advanced-safety-features.md` — lone worker, man-down, geo-fencing, and the authorisation-policy sensitivity of ambient listening
 
 ## Status
 

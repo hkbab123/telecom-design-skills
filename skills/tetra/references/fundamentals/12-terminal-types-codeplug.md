@@ -11,6 +11,19 @@ What actually determines which talkgroups a radio can use and why "just reprogra
 
 Each category has its own RF power class, battery/power characteristics, and — critically for O&G — its own ATEX/IECEx certification status (a handheld certified for a given zone is a specific certified product variant, not a generic feature toggled on any handheld).
 
+## Environmental ruggedisation — EN 50155 and equivalent (onboard rail equipment specifically)
+
+Cab radios and other onboard train equipment sit in an environment general handheld/mobile terminal ratings don't cover: continuous vibration and shock from the moving vehicle, and a wider ambient temperature range than a typical vehicle cab. **EN 50155** is the railway-specific standard for electronic equipment used on rolling stock, covering exactly this — defined vibration/shock test profiles, extended temperature ranges, and power-supply-variation tolerance (rail vehicle DC supplies fluctuate more than a stable mains-derived supply). A terminal or onboard gateway/repeater unit intended for permanent installation on rolling stock should be the specific EN 50155-qualified product variant, not a general mobile terminal simply bolted into a cab — the same principle as ATEX/IECEx certification above (fundamentals file 18): the certification attaches to a specific tested product, not a general model line, so confirm the exact qualified part number with the OEM rather than assuming a mobile-category terminal automatically qualifies for permanent rail-vehicle installation.
+
+## Audio accessories and noise environments
+
+Standard terminal audio (built-in speaker/microphone) is often inadequate in the specific high-noise environments common to rail and O&G operations — compressor stations, heavy track-tamping machinery, and similarly loud plant/trackside equipment can push ambient noise well past the point where a standard microphone captures intelligible speech or a standard speaker is audible. Accessory options worth scoping explicitly where the operational environment demands it, rather than assumed adequately covered by a standard handset:
+- **Heavy-duty/noise-cancelling headsets and ear defenders** — combine hearing protection (a workplace-safety requirement in its own right in high-noise areas) with a noise-cancelling or noise-cancelling-adjacent microphone.
+- **Throat microphones** — pick up speech via vibration at the throat rather than airborne sound, largely immune to ambient acoustic noise, common in extreme-noise or confined-space/breathing-apparatus use cases.
+- **Bone-conduction earpieces** — transmit audio via bone vibration rather than through the ear canal, useful where hearing protection or breathing apparatus makes a conventional earpiece impractical, or where situational awareness of surrounding ambient sound needs to be preserved alongside radio audio.
+
+Where accessories are used in a classified hazardous area, they inherit the same ATEX/IECEx certification requirement as the terminal itself (fundamentals file 18) — an otherwise-suitable accessory that isn't itself certified for the zone can't legitimately be paired with a certified handheld for use in that zone, so accessory certification status needs the same confirm-with-OEM discipline as the terminal itself.
+
 ## The codeplug concept
 
 A **codeplug** is the configuration data loaded into a terminal that defines its operational behaviour: which talkgroups it's a member of, its scan list, its individually-addressable identity (ISSI — Individual Short Subscriber Identity), emergency-button behaviour, encryption keys (initial provisioning, before OTAR takes over ongoing rekeying), and channel/network parameters. This is programmed via the OEM's own fleet-management/programming software — a vendor-specific tool, not something this skill can detail beyond the concept.

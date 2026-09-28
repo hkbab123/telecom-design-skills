@@ -23,8 +23,17 @@ Separate from encryption: **authentication** verifies a terminal is legitimate b
 
 Encryption keys need periodic replacement (for security hygiene, or to revoke a compromised/lost terminal's access). **OTAR** lets the SwMI push new keys to terminals over the air rather than requiring physical reprogramming of every radio — essential for any fleet beyond a handful of terminals, since manual rekeying doesn't scale. Key management policy to confirm with the client: rekeying frequency, and the process for immediately revoking a lost/stolen terminal's keys (a lost terminal with a valid key is a live security exposure until revoked).
 
+## Terminal disablement — stun and kill
+
+Beyond revoking a terminal's encryption keys (OTAR, above), the SwMI can send a remote command directly disabling a lost or compromised terminal, at two escalating levels:
+- **Stun** — temporarily disables the terminal (it stops transmitting/receiving, but retains its programming) — reversible with a corresponding **revive** command once the terminal is recovered, making it the appropriate first response to a temporarily-mislaid radio.
+- **Kill** — permanently disables the terminal (typically wiping its programming/keys), not reversible without physically reprogramming the unit — reserved for confirmed loss/theft or a genuine security-perimeter breach, since it takes the terminal out of service for good.
+
+Both commands are sent over the air through the same SwMI signalling path used for OTAR, so they should be confirmed as a specific requirement alongside OTAR (not assumed automatically included), and the client's security policy should define who is authorised to issue a stun/kill command and under what circumstances — this is an operational-procedure decision as much as a technical capability.
+
 ## Why this matters for design decisions
 
+- Stun/kill capability, and the authorisation procedure for issuing it, should be confirmed as an explicit technical-specification requirement alongside OTAR (Stage 2 item 11) — don't assume it's automatically part of a generic "security features" line item.
 - E2E encryption is a talkgroup-by-talkgroup decision, not a network-wide default — ask which specific groups (security, emergency response) actually need it, since it adds cost and terminal complexity.
 - TEA algorithm selection needs a regulatory answer, not a technical preference — flag this to the client's compliance/security function rather than choosing unilaterally.
 - OTAR capability should be confirmed as an actual requirement in the technical specification (Stage 2 item 11) — without it, a fleet of any real size becomes operationally difficult to rekey or to revoke a lost radio from.
