@@ -48,6 +48,8 @@ Once the stage is known, read the matching reference file and walk the user thro
 
 Surface calculations where the reference file specifies them (sound pressure level/intelligibility, amplifier and loudspeaker-line loading, battery autonomy) rather than asserting a number — show the inputs and method, and ask for any missing input.
 
+**When a question is conceptual, not sequential** — "why does STI matter more than SPL," "how does N+1 redundancy actually work," "what does SIL 2 mean for General Alarm," "why does rail GA not need the same rigor as O&G" — pull the matching file from `references/fundamentals/` (see the index below) in addition to the stage file. The stage files tell you *what order to decide things in*; the fundamentals files tell you *how the thing actually works*, so the user doesn't need to search the internet or find a mentor to understand the reasoning behind a decision.
+
 ## Step 3 — Produce the deliverable
 
 Match the level of detail to the stage: Concept is order-of-magnitude/parametric, Tender is specification-grade, Engineering is detailed and vendor-sourced.
@@ -58,6 +60,29 @@ Match the level of detail to the stage: Concept is order-of-magnitude/parametric
 - `references/stage2-tender.md` — Tender stage: the technical specification decision sequence
 - `references/stage3-engineering.md` — Engineering stage: the detailed post-award design sequence
 - `references/standards.md` — Standards this skill references (IEC 60849, EN 54, ISO 7240, ATEX/IECEx, IEC 61508/61511) and what each governs
+
+## Technical fundamentals (`references/fundamentals/`)
+
+Deep-dive explainers for the engineering theory behind each stage decision — load the relevant one whenever the user needs the "how/why," not just the "what decision comes next." Each includes worked examples where a calculation is involved, and closes with a "why this matters for design decisions" section tying it back to the stage sequences above.
+
+1. `01-paga-system-architecture-and-platform-concept.md` — PA/GA one-platform-two-functions concept, core components, centralised vs distributed, analogue CV vs IP-networked audio
+2. `02-acoustic-theory-spl-and-intelligibility.md` — SPL theory, STI/CIS as the actual pass/fail metric, worked ambient-noise/reverberation example
+3. `03-loudspeaker-types-dispersion-and-selection.md` — horn vs cone, dispersion pattern and direct-to-reverberant ratio, environment-driven selection
+4. `04-constant-voltage-line-theory-and-worked-example.md` — 70V/100V CV distribution, tap-loading calculation, worked overload/headroom example
+5. `05-amplifier-sizing-and-redundancy-mechanics.md` — N+1 vs dual-redundant/2N, failover triggers, power/controller redundancy layers
+6. `06-line-loop-supervision-and-fault-monitoring.md` — end-of-line supervision mechanism, EN 54-16/24 mandate, fault-reporting granularity
+7. `07-functional-safety-sil-for-general-alarm.md` — GA as a Safety Instrumented Function, SIL/PFD, the risk-graph/LOPA determination process
+8. `08-evacuation-tone-standards-and-message-priority-logic.md` — ISO 8201-1 tone, tone-then-voice sequence, GA-always-pre-empts-PA priority rule
+9. `09-fire-gas-esd-integration-mechanics.md` — hardwired vs digital-bus F&G/ESD interface, cause-and-effect matrix, activation timing
+10. `10-power-system-and-battery-autonomy-worked-example.md` — standby vs full-alarm load states, worked battery-autonomy example, generator sizing
+11. `11-fire-survival-cabling-and-segregation.md` — fire-survival vs fire-retardant cable, segregation requirements, scope limited to GA-tagged circuits
+12. `12-hazardous-area-technical-basis.md` — IEC 60079 zone classification, which equipment categories need certification, protection concepts
+13. `13-control-room-console-and-operator-mechanics.md` — zone-selection interface, manual GA trigger, backup console locations
+14. `14-interfacing-technical-basis.md` — telephony/BMS/CCTV interfaces beyond F&G/ESD, ICD principle, interface criticality tiering
+15. `15-testing-commissioning-and-verification-methodology.md` — acoustic/supervision/redundancy/priority/F&G test categories, document gating
+16. `16-offshore-and-marine-environmental-considerations.md` — marine classification society approval, corrosion/environment, vessel alarm conventions
+17. `17-network-management-and-fault-handling.md` — fault prioritisation, remote/centralised monitoring, MTTR targets
+18. `18-rail-specific-design-variations.md` — fire alarm panel vs F&G/ESD trigger, fire-code-driven vs SIL-driven GA, train describer/PIS integration, EN 50121 EMC
 
 ## Status
 
