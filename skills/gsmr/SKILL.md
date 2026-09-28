@@ -53,6 +53,8 @@ Once the stage is known, read the matching reference file and walk the user thro
 
 Surface calculations where the reference file specifies them (coverage/link budget, cell planning, capacity, redundancy) rather than asserting a number — show the inputs and the method, and ask for any missing input rather than assuming a value.
 
+**When a question is conceptual, not sequential** — "how does the <300ms handover requirement actually work," "explain the Erlang calculation," "what's the difference between GSM-R's core and the interworking interface," "why is a functional number not tied to a SIM" — pull the matching file from `references/fundamentals/` (see the index below) in addition to the stage file. The stage files tell you *what order to decide things in*; the fundamentals files tell you *how the thing actually works*, so the user doesn't need to search the internet or find a mentor to understand the reasoning behind a decision.
+
 ## Step 4 — Produce the deliverable
 
 Each stage reference file lists its expected deliverables. Once you and the user have worked through the relevant decisions, produce the deliverable(s) requested — e.g. a feasibility summary, a technical specification section, a compliance matrix row, a coverage study framing, a BOQ basis. Match the level of detail to the stage: Concept is order-of-magnitude/parametric, Tender is specification-grade, Engineering is detailed and vendor-sourced.
@@ -63,6 +65,33 @@ Each stage reference file lists its expected deliverables. Once you and the user
 - `references/stage2-tender.md` — Tender stage: the 18-point technical specification decision sequence
 - `references/stage3-engineering.md` — Engineering stage: the 20-step detailed post-award design sequence
 - `references/standards.md` — Standards this skill references (EIRENE, 3GPP, UIC, EN 50126) and what each governs
+
+## Technical fundamentals (`references/fundamentals/`)
+
+Deep-dive explainers for the engineering theory behind each stage decision — load the relevant one whenever the user needs the "how/why," not just the "what decision comes next." Each includes worked examples where a calculation is involved, and closes with a "why this matters for design decisions" section tying it back to the stage sequences above.
+
+1. `01-air-interface-protocol.md` — GSM-R as standard GSM/GERAN plus R-GSM 900 and railway-specific additions
+2. `02-network-architecture.md` — BTS/BSC/MSC/HLR-VLR/GCR, why GSM-R needs its own core, and the cross-border core-placement technical mechanics
+3. `03-trunking-erlang-theory.md` — Erlang-B formula, worked capacity example, GSM-R traffic-class/eMLPP nuances
+4. `04-rf-propagation-link-budget.md` — rail-corridor propagation models, worked link-budget example, handover-viability coverage target
+5. `05-handover-mechanics.md` — the <300ms EIRENE requirement as GSM-R's most safety-critical design constraint
+6. `06-frequency-planning-interference.md` — R-GSM 900 raster, corridor reuse, adjacent-public-E-GSM-900 and cross-border coordination
+7. `07-call-types-functional-addressing.md` — functional numbering, VGCS/VBS/point-to-point/emergency calls, GCR coordination
+8. `08-data-services.md` — GPRS/EDGE and the ETCS-bearer relationship (GSM-R carries ETCS data, isn't the signalling system)
+9. `09-voice-codec-quality.md` — standard GSM codecs, degradation pattern, handover-related quality dips
+10. `10-security-encryption.md` — A5/SIM auth, functional-number login as a separate auth layer, inherited 2G crypto limitations
+11. `11-emlpp-priority-preemption.md` — eMLPP mechanics, EIRENE priority levels, interaction with Erlang-B blocking targets
+12. `12-terminal-types-functional-numbering.md` — cab radio/handheld/fixed terminals, functional-number login/logout process
+13. `13-site-rf-engineering.md` — corridor-aimed directional antennas, trackside access/possession constraints
+14. `14-backhaul-transmission.md` — fibre-as-default backhaul, ETCS-bearer capacity/redundancy dimensioning
+15. `15-redundancy-failover-mechanics.md` — core/BTS/transmission redundancy, cross-border interworking-interface resilience
+16. `16-power-system-battery-autonomy.md` — load calculation, worked battery-autonomy example, generator sizing
+17. `17-network-management-fault-handling.md` — NMS, alarm routing prioritised by ETCS-bearer traffic, handover-performance monitoring
+18. `18-cross-border-architecture-technical-basis.md` — the interworking interface mechanically, and the case for independent-core-plus-interworking
+19. `19-functional-safety-technical-basis.md` — RAMS, SIL/THR, where GSM-R actually sits relative to ETCS's safety case
+20. `20-interfacing-technical-basis.md` — how the ETCS/Euroradio bearer, interlocking, PA/PIS, and dispatcher interfaces actually work
+21. `21-testing-commissioning-methodology.md` — FAT/SAT, drive/walk testing, ETCS-bearer and cross-border test campaigns
+22. `22-migration-path-frmcs-lte-r.md` — why GSM-R is being phased out, what FRMCS changes, what "FRMCS-ready" means today
 
 ## Status
 
