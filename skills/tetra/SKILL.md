@@ -48,6 +48,8 @@ Once the stage is known, read the matching reference file and walk the user thro
 
 Surface calculations where the reference file specifies them (trunked-radio capacity/Erlang, coverage/link budget) rather than asserting a number — show the inputs and method, and ask for any missing input.
 
+**When a question is conceptual, not sequential** — "how does DMO actually work," "explain the Erlang calculation," "what does Ex ia mean," "why is voice quality bad at the edge of coverage" — pull the matching file from `references/fundamentals/` (see the index below) in addition to the stage file. The stage files tell you *what order to decide things in*; the fundamentals files tell you *how the thing actually works*, so the user doesn't need to search the internet or find a mentor to understand the reasoning behind a decision.
+
 ## Step 3 — Produce the deliverable
 
 Match the level of detail to the stage: Concept is order-of-magnitude/parametric, Tender is specification-grade, Engineering is detailed and vendor-sourced.
@@ -58,6 +60,33 @@ Match the level of detail to the stage: Concept is order-of-magnitude/parametric
 - `references/stage2-tender.md` — Tender stage: the technical specification decision sequence
 - `references/stage3-engineering.md` — Engineering stage: the detailed post-award design sequence
 - `references/standards.md` — Standards this skill references (ETSI TETRA series, ATEX/IECEx, EN 50126/IEC 61508) and what each governs
+
+## Technical fundamentals (`references/fundamentals/`)
+
+Deep-dive explainers for the engineering theory behind each stage decision — load the relevant one whenever the user needs the "how/why," not just the "what decision comes next." Each includes worked examples where a calculation is involved, and closes with a "why this matters for design decisions" section tying it back to the stage sequences above.
+
+1. `01-air-interface-protocol.md` — TDMA structure, modulation, logical channels, TMO vs DMO at the protocol level
+2. `02-swmi-network-architecture.md` — exchange/base station/dispatcher roles, single vs multi-exchange, ISI, simulcast vs conventional
+3. `03-trunking-erlang-theory.md` — Erlang-B formula, worked capacity example, timeslot/carrier conversion
+4. `04-rf-propagation-link-budget.md` — link budget structure, propagation models, worked link-budget example
+5. `05-handover-mobility-management.md` — registration, idle-mode reselection, in-call handover, simulcast's handover-free advantage
+6. `06-frequency-planning-interference.md` — channel raster, reuse patterns, co-channel/adjacent-channel interference
+7. `07-call-types-talkgroup-priority.md` — group/individual/broadcast/emergency calls, DGNA, priority/pre-emption mechanics
+8. `08-data-services.md` — SDS and packet data, GPS/fleet tracking, SCADA telemetry throughput ceiling
+9. `09-voice-codec-quality.md` — ACELP codec, why TETRA voice sounds/degrades the way it does
+10. `10-security-encryption-key-management.md` — air-interface vs end-to-end encryption, TEA1-4, authentication, OTAR
+11. `11-dmo-gateways.md` — DMO protocol mechanics, repeaters vs gateways, TMO/DMO bridging
+12. `12-terminal-types-codeplug.md` — handheld/mobile/fixed terminals, codeplug/provisioning, ISSI
+13. `13-site-rf-engineering.md` — antennas, combiners/duplexers, feeder loss, site layout
+14. `14-backhaul-transmission.md` — fibre vs microwave vs leased circuit, capacity/redundancy dimensioning
+15. `15-redundancy-failover-mechanics.md` — exchange hot-standby, site/equipment redundancy, what an availability KPI actually requires
+16. `16-power-system-battery-autonomy.md` — load calculation, worked battery-autonomy example, generator sizing
+17. `17-network-management-fault-handling.md` — NMS, alarm severity/routing, effect on real-world MTTR
+18. `18-hazardous-area-technical-basis.md` — zone classification, Ex protection concepts, installation practice vs equipment certification
+19. `19-functional-safety-technical-basis.md` — SIL, IEC 61508/61511, when it genuinely applies
+20. `20-interfacing-technical-basis.md` — how the PABX, SCADA, and dispatcher interfaces actually work mechanically
+21. `21-testing-commissioning-methodology.md` — drive/walk testing, FAT vs SAT, objective acceptance criteria
+22. `22-migration-path-broadband-mcptt.md` — 3GPP MCPTT, deployment models, TETRA/FRMCS's shared succession pattern
 
 ## Status
 
