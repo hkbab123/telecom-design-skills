@@ -13,7 +13,7 @@ A family of [Claude Code Skills](https://docs.claude.com/en/docs/claude-code/ski
 
 **Two subsystem skills exist so far, both v0.1:**
 - **GSM-R** — the pilot. Its Concept-stage workflow is confirmed practice; the Tender and Engineering sequences are a strong first-pass domain draft, refined against a real cross-border project reference, and open to correction from practicing GSM-R engineers.
-- **TETRA** — built from public ETSI TETRA standards knowledge and general PMR design practice rather than a specific past project. Covers both rail (station/yard/depot voice) and oil & gas (plant/field voice, including ATEX/IECEx hazardous-area equipment requirements) use cases in one skill.
+- **TETRA** — built from public ETSI TETRA standards knowledge and general PMR design practice rather than a specific past project. Covers both rail (station/yard/depot voice) and oil & gas (plant/field voice, including ATEX/IECEx hazardous-area equipment requirements) use cases in one skill. Also includes a 22-file `references/fundamentals/` layer — deep-dive engineering explainers (trunking/Erlang theory, RF link budgets, protocol mechanics, hazardous-area technical basis, and more, each with worked examples) so an engineer using this skill doesn't need to search the internet or find a mentor to understand the reasoning behind a decision, not just the decision sequence itself.
 
 Both are open to correction from practicing engineers — see [Contributing](#contributing).
 
