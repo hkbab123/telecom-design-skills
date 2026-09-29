@@ -4,7 +4,7 @@ The technical basis behind Stage 2 item 5 — read this when the question is "wh
 
 ## Channel raster and duplex spacing
 
-TETRA channels are spaced on a **25 kHz raster** within whatever band the national regulator allocates (commonly somewhere in 380–470 MHz — always confirm the actual allocation, never assume). Base station transmit (downlink) and receive (uplink) are separated by a **duplex spacing** specific to the allocated band plan (varies by regulator/region — confirm per project), so a "channel" in practical terms is really a paired uplink/downlink frequency, not a single frequency.
+TETRA channels are spaced on a **25 kHz raster** within whatever band the national regulator allocates. TETRA is deployed across a wider range than UHF alone — public-safety/PMR allocations commonly fall somewhere across roughly 150–470 MHz depending on the country, spanning both VHF (150–174 MHz-ish, common in some national PMR bands) and UHF (380–470 MHz-ish, the more familiar European public-safety TETRA range) — always confirm the actual allocation with the national regulator rather than assuming UHF by default. Base station transmit (downlink) and receive (uplink) are separated by a **duplex spacing** specific to the allocated band plan (varies by regulator/region — confirm per project), so a "channel" in practical terms is really a paired uplink/downlink frequency, not a single frequency.
 
 ## Frequency reuse
 
