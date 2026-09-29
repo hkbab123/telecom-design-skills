@@ -7,16 +7,17 @@ A single [Claude Code Skill](https://docs.claude.com/en/docs/claude-code/skills)
 3. Checks each decision against the governing standards and the client spec.
 4. Helps produce the engineering deliverables for that stage (technical specification, compliance matrix, BOQ basis, etc.).
 
-**Who it's for:** consultants, PMCs, EPC contractors, and vendor engineers working on rail or oil & gas telecom subsystems — GSM-R, TETRA, and PAGA today, with SCADA, CCTV, fibre backbone, and more being added to the same skill over time.
+**Who it's for:** consultants, PMCs, EPC contractors, and vendor engineers working on rail or oil & gas telecom subsystems — GSM-R, TETRA, PAGA, and SCADA today, with CCTV, fibre backbone, and more being added to the same skill over time.
 
 ## Status
 
-**One skill (`tse`), three subsystems built so far, all v0.1:**
+**One skill (`tse`), four subsystems built so far, all v0.1:**
 - **GSM-R** — the pilot. Its Concept-stage workflow is confirmed practice; the Tender and Engineering sequences are a strong first-pass domain draft, refined against a real cross-border project reference, and open to correction from practicing GSM-R engineers. Also includes a 22-file fundamentals layer covering GSM-R's own engineering theory (network architecture and cross-border core placement, EIRENE's <300ms handover requirement, functional addressing, ETCS-bearer data services, RAMS/SIL, and more, each with worked examples) so an engineer doesn't need to search the internet or find a mentor to understand the reasoning behind a decision.
 - **TETRA** — built from public ETSI TETRA standards knowledge and general PMR design practice rather than a specific past project. Covers both rail (station/yard/depot voice) and oil & gas (plant/field voice, including ATEX/IECEx hazardous-area equipment requirements) use cases. Also includes a 26-file fundamentals layer — deep-dive engineering explainers (trunking/Erlang theory, RF link budgets, protocol mechanics, hazardous-area technical basis including gas-group/temperature-class certification markings, passive/active outdoor repeaters and cell extenders, antenna/feeder/combiner site hardware, numbering schemes, network synchronization/timing, cybersecurity and IT/OT governance, dispatcher/control-room ergonomics, advanced safety features, and more, each with worked examples) so an engineer using this skill doesn't need to search the internet or find a mentor to understand the reasoning behind a decision, not just the decision sequence itself.
 - **PAGA** — built from public IEC 60849/EN 54/ISO 7240 voice-alarm standards knowledge and general PAGA design practice rather than a specific past project. Covers both rail (station/platform public address and evacuation alarm) and oil & gas (plant/offshore Public Address & General Alarm, including Fire & Gas/ESD integration, functional safety for the General Alarm function, and ATEX/IECEx hazardous-area equipment requirements) use cases. Also includes an 18-file fundamentals layer — deep-dive engineering explainers (SPL/STI acoustic theory, constant-voltage line and tap-loading calculations, amplifier redundancy, functional safety/SIL determination for General Alarm, F&G/ESD integration mechanics, fire-survival cabling, hazardous-area equipment certification, offshore/marine considerations, rail-specific design variations, and more, each with worked examples) so an engineer using this skill doesn't need to search the internet or find a mentor to understand the reasoning behind a decision, not just the decision sequence itself.
+- **SCADA** — built from public IEC 62443/IEC 61508-61511/IEC 60870-5/ISA-95 industrial-control standards knowledge and general SCADA design practice rather than a specific past project (though Harish plans to supply project-specific reference material — DMRC tunnel-ventilation SCADA integration experience — as a future gap-fill round). Covers both rail (tunnel-ventilation normal/fire-mode control, station M&E) and oil & gas (process control/ICSS, SIS/ESD interface boundary) use cases. Also includes a 16-file fundamentals layer — deep-dive engineering explainers (ISA-95 architecture layers, PLC/RTU/I/O fundamentals, communication protocols, IT/OT cybersecurity segmentation, the SIS/SCADA independence principle, tunnel-ventilation fire-mode control, EEMUA 191 alarm rationalisation, legacy migration/cutover methodology, and more, each with worked examples) so an engineer using this skill doesn't need to search the internet or find a mentor to understand the reasoning behind a decision, not just the decision sequence itself.
 
-All three are open to correction from practicing engineers — see [Contributing](#contributing).
+All four are open to correction from practicing engineers — see [Contributing](#contributing).
 
 **Restructured 29-Sep-26** from three separate published skills (`gsmr`, `tetra`, `paga`) into this single `tse` umbrella skill, so the whole subsystem pool (built and planned) lives under one install rather than one skill per subsystem. Content is unchanged — only the entry-point mechanics moved.
 
@@ -30,7 +31,7 @@ All three are open to correction from practicing engineers — see [Contributing
    ```
 
    For a project-local install instead, copy it into `.claude/skills/tse` inside your project directory.
-3. In Claude Code, trigger it naturally — e.g. "I'm scoping a GSM-R network for a new metro line, walk me through the coverage philosophy decisions," "I need to design a TETRA network for an offshore platform," or "help me design the PAGA evacuation alarm system for a gas plant" — or invoke directly with `/tse`. It will ask which subsystem you mean if it isn't already clear.
+3. In Claude Code, trigger it naturally — e.g. "I'm scoping a GSM-R network for a new metro line, walk me through the coverage philosophy decisions," "I need to design a TETRA network for an offshore platform," "help me design the PAGA evacuation alarm system for a gas plant," or "walk me through the tunnel-ventilation SCADA fire-mode design" — or invoke directly with `/tse`. It will ask which subsystem you mean if it isn't already clear.
 
 ## OEM data disclaimer
 
@@ -38,13 +39,12 @@ No proprietary vendor documentation (Huawei, Nokia, or any other OEM's internal 
 
 ## Roadmap
 
-Subsystems already built (full stage sequences + fundamentals layer): **GSM-R, TETRA, PAGA**.
+Subsystems already built (full stage sequences + fundamentals layer): **GSM-R, TETRA, PAGA, SCADA**.
 
 Subsystems in the pool, not yet built — added one at a time as research data comes in:
 
 | Subsystem | Status |
 |---|---|
-| SCADA | Not started |
 | CCTV | Not started |
 | Fibre backbone / transmission (SDH/DWDM/OTN) | Not started |
 | PABX | Not started |
@@ -70,15 +70,16 @@ telecom-design-skills/
 │       │   │   ├── stage1-concept.md, stage2-tender.md, stage3-engineering.md, standards.md
 │       │   │   └── fundamentals/     22 files, deep-dive engineering theory
 │       │   ├── tetra/                same shape, 26 fundamentals files
-│       │   └── paga/                 same shape, 18 fundamentals files
+│       │   ├── paga/                 same shape, 18 fundamentals files
+│       │   └── scada/                same shape, 16 fundamentals files
 │       └── templates/
-│           ├── gsmr/, tetra/, paga/  Deliverable templates (planned)
+│           ├── gsmr/, tetra/, paga/, scada/  Deliverable templates (planned)
 ├── docs/
 │   └── design-notes/                 Background on how this skill is designed
 └── CONTRIBUTING.md
 ```
 
-Three subsystems now exist (GSM-R, TETRA, PAGA) inside the single `tse` skill, each self-contained under its own `references/<subsystem>/` folder — see `docs/design-notes/design-philosophy.md` for the earlier per-skill design reasoning, most of which still applies at the subsystem-folder level. All three subsystems share the same stage/role intake shape (Concept → Tender → Engineering, Client/PMC/Consultant/Contractor/Vendor), a design-rules block (no unsourced OEM data, illustrative-figures caveat — now partly hoisted into the umbrella `SKILL.md`), and a `standards.md` pattern.
+Four subsystems now exist (GSM-R, TETRA, PAGA, SCADA) inside the single `tse` skill, each self-contained under its own `references/<subsystem>/` folder — see `docs/design-notes/design-philosophy.md` for the earlier per-skill design reasoning, most of which still applies at the subsystem-folder level. All four subsystems share the same stage/role intake shape (Concept → Tender → Engineering, Client/PMC/Consultant/Contractor/Vendor), a design-rules block (no unsourced OEM data, illustrative-figures caveat — now partly hoisted into the umbrella `SKILL.md`), and a `standards.md` pattern.
 
 ## Contributing
 

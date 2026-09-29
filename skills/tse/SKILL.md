@@ -1,6 +1,6 @@
 ---
 name: tse
-description: Guides a rail or oil & gas telecom/instrumentation engineer through a subsystem design session end-to-end — concept/feasibility, tender-stage technical specification, and detailed post-award engineering. Acts as a senior telecom systems engineer walking a junior through the right sequence of decisions for the specific subsystem in play, checked against the governing standards for that subsystem. Currently covers GSM-R (railway GSM radio), TETRA (trunked PMR radio), and PAGA (Public Address & General Alarm) in full depth, with more rail/O&G telecom subsystems (SCADA, CCTV, fibre backbone/transmission, PABX, VSAT, master clock/timing, security & access control, passenger information systems, marine/aero/VHF/UHF radio, station management systems, platform screen doors) being added to the same skill over time. Trigger this whenever the user is working on any rail or oil & gas telecom/instrumentation subsystem design, coverage/link-budget planning, capacity dimensioning, technical specifications, tender documents, compliance matrices, interface control documents, or BOQs — even when they name the subsystem generically ("public address system," "trunked radio," "railway radio network," "evacuation alarm," "plant siren system") rather than by its formal name.
+description: Guides a rail or oil & gas telecom/instrumentation engineer through a subsystem design session end-to-end — concept/feasibility, tender-stage technical specification, and detailed post-award engineering. Acts as a senior telecom systems engineer walking a junior through the right sequence of decisions for the specific subsystem in play, checked against the governing standards for that subsystem. Currently covers GSM-R (railway GSM radio), TETRA (trunked PMR radio), PAGA (Public Address & General Alarm), and SCADA (rail tunnel-ventilation/station M&E and O&G process control/ICSS) in full depth, with more rail/O&G telecom subsystems (CCTV, fibre backbone/transmission, PABX, VSAT, master clock/timing, security & access control, passenger information systems, marine/aero/VHF/UHF radio, station management systems, platform screen doors) being added to the same skill over time. Trigger this whenever the user is working on any rail or oil & gas telecom/instrumentation subsystem design, coverage/link-budget planning, capacity dimensioning, technical specifications, tender documents, compliance matrices, interface control documents, or BOQs — even when they name the subsystem generically ("public address system," "trunked radio," "railway radio network," "evacuation alarm," "plant siren system," "tunnel ventilation control," "process control system") rather than by its formal name.
 ---
 
 # Telecom System Engineering (TSE) Skill
@@ -22,8 +22,9 @@ Ask before going further, unless the user has already named it unambiguously:
 - **GSM-R** — railway GSM radio (EIRENE/3GPP/UIC) → `references/gsmr/GUIDE.md`
 - **TETRA** — trunked professional mobile radio (ETSI EN 300 392) → `references/tetra/GUIDE.md`
 - **PAGA** — Public Address & General Alarm (IEC 60849/EN 54/ISO 7240) → `references/paga/GUIDE.md`
+- **SCADA** — rail tunnel-ventilation/station M&E SCADA and O&G process control/ICSS (IEC 62443, IEC 61508/61511, IEC 60870-5) → `references/scada/GUIDE.md`
 
-**Planned/in the pool, not yet built** — if the user asks about one of these, say so plainly rather than improvising a design sequence from general knowledge: SCADA, CCTV, fibre backbone/transmission (SDH/DWDM/OTN), PABX, VSAT (incl. hub/DAMA-TDMA), master clock/timing systems, security & access control (perimeter/IDS/ACS), passenger information systems (PIDS/VEID/Passenger Help Points), marine/aeronautical/HF/UHF radio, station management systems, platform screen doors. This pool grows as Harish supplies research data per subsystem — each new one gets its own `references/<subsystem>/` folder built the same way as GSM-R/TETRA/PAGA.
+**Planned/in the pool, not yet built** — if the user asks about one of these, say so plainly rather than improvising a design sequence from general knowledge: CCTV, fibre backbone/transmission (SDH/DWDM/OTN), PABX, VSAT (incl. hub/DAMA-TDMA), master clock/timing systems, security & access control (perimeter/IDS/ACS), passenger information systems (PIDS/VEID/Passenger Help Points), marine/aeronautical/HF/UHF radio, station management systems, platform screen doors. This pool grows as Harish supplies research data per subsystem — each new one gets its own `references/<subsystem>/` folder built the same way as GSM-R/TETRA/PAGA/SCADA.
 
 **Q — Who is the user representing?** (same across every subsystem — ask once, applies for the rest of the session)
 - **Client** (asset owner — railway authority or O&G operator/investor)
@@ -51,11 +52,12 @@ skills/tse/
 │   │   ├── stage1-concept.md, stage2-tender.md, stage3-engineering.md, standards.md
 │   │   └── fundamentals/          22 files, deep-dive engineering theory
 │   ├── tetra/                     same shape, 26 fundamentals files
-│   └── paga/                      same shape, 18 fundamentals files
+│   ├── paga/                      same shape, 18 fundamentals files
+│   └── scada/                     same shape, 16 fundamentals files
 └── templates/
-    ├── gsmr/, tetra/, paga/       deliverable templates (planned, per subsystem)
+    ├── gsmr/, tetra/, paga/, scada/   deliverable templates (planned, per subsystem)
 ```
 
 ## Status
 
-Restructured 29-Sep-26 from three separate published skills (`gsmr`, `tetra`, `paga`) into this single umbrella skill, at Harish's direction, so the whole telecom-subsystem pool (built + planned) lives under one skill rather than one install per subsystem. GSM-R, TETRA, and PAGA are unchanged in content — only their location and entry-point mechanics moved. See the repo README and `docs/design-notes/` for the fuller history of why each subsystem was built the way it was.
+Restructured 29-Sep-26 from three separate published skills (`gsmr`, `tetra`, `paga`) into this single umbrella skill, at Harish's direction, so the whole telecom-subsystem pool (built + planned) lives under one skill rather than one install per subsystem. GSM-R, TETRA, and PAGA are unchanged in content — only their location and entry-point mechanics moved. SCADA was added the same day as the fourth built subsystem, from public standards knowledge (v0.1, pending a gap-fill round against Harish's own project reference material). See the repo README and `docs/design-notes/` for the fuller history of why each subsystem was built the way it was.

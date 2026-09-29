@@ -18,7 +18,7 @@ GSM-R's Tender-stage (18-point) and Engineering-stage (20-step) decision sequenc
 
 ## Adding a new subsystem
 
-All subsystems (GSM-R, TETRA, PAGA today; SCADA, CCTV, fibre backbone, PABX, VSAT, and others planned) live inside the single `skills/tse/` skill. Adding a new one follows the same pattern each time: a `skills/tse/references/<subsystem>/GUIDE.md` entry point (subsystem-specific design rules, stage/role intake mechanics) plus stage-specific decision sequences and a fundamentals layer, written the same way as `skills/tse/references/gsmr/`. If you want to lead one of these, open an issue first so effort isn't duplicated.
+All subsystems (GSM-R, TETRA, PAGA, SCADA today; CCTV, fibre backbone, PABX, VSAT, and others planned) live inside the single `skills/tse/` skill. Adding a new one follows the same pattern each time: a `skills/tse/references/<subsystem>/GUIDE.md` entry point (subsystem-specific design rules, stage/role intake mechanics) plus stage-specific decision sequences and a fundamentals layer, written the same way as `skills/tse/references/gsmr/`. If you want to lead one of these, open an issue first so effort isn't duplicated.
 
 ## What won't be accepted
 
