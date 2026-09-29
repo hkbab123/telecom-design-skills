@@ -4,7 +4,7 @@ This project welcomes corrections and additions from practicing telecom engineer
 
 ## Most valuable right now
 
-The GSM-R skill's Tender-stage (18-point) and Engineering-stage (20-step) decision sequences in `skills/gsmr/references/` are a domain-expert first draft. If you work on GSM-R projects, the most useful contribution is:
+GSM-R's Tender-stage (18-point) and Engineering-stage (20-step) decision sequences in `skills/tse/references/gsmr/` are a domain-expert first draft. If you work on GSM-R projects, the most useful contribution is:
 
 - Correcting the **order** of any decision or step that doesn't match how it actually gates the ones around it.
 - Flagging anything that's **missing** (e.g. a specific EIRENE clause you always check, an environmental/EMC consideration, spares/O&M provisioning).
@@ -14,11 +14,11 @@ The GSM-R skill's Tender-stage (18-point) and Engineering-stage (20-step) decisi
 ## How to propose a change
 
 1. Open an issue describing the correction, with your reasoning (a line or two on *why* is more useful than the correction alone — it helps evaluate edge cases).
-2. Or open a pull request directly against the relevant file in `skills/gsmr/references/`.
+2. Or open a pull request directly against the relevant file in `skills/tse/references/gsmr/`.
 
-## Adding a new subsystem skill
+## Adding a new subsystem
 
-Once the GSM-R pattern is proven, the next subsystems (TETRA, PAGA, SCADA, CCTV, fibre backbone) will follow the same pattern: a `skills/<subsystem>/SKILL.md` entry point plus a `references/` folder with stage-specific decision sequences, written the same way as `skills/gsmr/`. If you want to lead one of these, open an issue first so effort isn't duplicated.
+All subsystems (GSM-R, TETRA, PAGA today; SCADA, CCTV, fibre backbone, PABX, VSAT, and others planned) live inside the single `skills/tse/` skill. Adding a new one follows the same pattern each time: a `skills/tse/references/<subsystem>/GUIDE.md` entry point (subsystem-specific design rules, stage/role intake mechanics) plus stage-specific decision sequences and a fundamentals layer, written the same way as `skills/tse/references/gsmr/`. If you want to lead one of these, open an issue first so effort isn't duplicated.
 
 ## What won't be accepted
 
