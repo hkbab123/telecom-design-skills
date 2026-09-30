@@ -1,0 +1,13 @@
+# CCTV as Verification, Not Detection — the Core Distinction
+
+This is CCTV's equivalent of PAGA's PA/GA split and SCADA's SIS/SCADA independence principle: a single underlying distinction the whole subsystem design has to respect.
+
+**The distinction:** a *detection* system (intrusion detection, fire detection, gas detection) is engineered, tested, and certified to reliably sense a specific physical condition and raise an alarm — it's designed to be trusted with minimal false negatives, often to a safety- or security-critical standard. CCTV — including its VCA layer — is a *verification and monitoring* system: it helps a human (or, in narrow certified cases, another system) confirm what a detection alarm actually means, and it provides continuous situational awareness and evidentiary record. It is not, by itself, engineered or certified to the same reliability standard as a detection system.
+
+**Where this goes wrong in practice:** a project scopes out a "proper" intrusion-detection system and relies on CCTV/VCA line-crossing analytics to fill that role instead, because cameras are already being installed anyway and analytics look similar in a demo. The problem surfaces later — VCA has a materially higher false-negative/false-positive rate than a purpose-built detection sensor, is more sensitive to environmental conditions (weather, lighting, camera fouling), and typically isn't independently certified the way a detection system is expected to be for a security- or safety-critical application.
+
+**The correct pattern (mirrors PAGA's General Alarm and SCADA's SIS):** CCTV sits alongside the detection system, consuming its alarm output to auto-call-up the relevant camera view for operator verification (`fundamentals/14-integration-with-other-systems.md`) — CCTV never replaces the detection function itself, the same way a PA system never replaces the General Alarm signal, and SCADA never replaces the SIS trip function.
+
+**Why this matters for design decisions:** this is the single question to ask first whenever a coverage zone's purpose sounds like "detect an intrusion/fire/gas event" rather than "monitor/verify/record" — if the former, flag that a certified detection system is the actual requirement, with CCTV as its supporting verification layer, not its substitute.
+
+**Formal reference:** no single standard states this principle directly — it follows from IEC 62676's framing of VSS as a surveillance (not detection) system, and from the general functional-safety principle (IEC 61508 family) that a detection/protection function must be independently engineered and certified to its own required reliability level.

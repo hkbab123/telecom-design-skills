@@ -1,0 +1,13 @@
+# O&G Perimeter Security and Thermal Surveillance
+
+**Perimeter security CCTV** on an O&G site typically works alongside a dedicated Perimeter Intrusion Detection System (PIDS — fence-mounted sensors, buried cable, microwave/radar barriers, or a combination), again respecting the detection-vs-verification boundary (`fundamentals/07-cctv-as-verification-not-detection.md`): PIDS detects, CCTV verifies and auto-calls-up the relevant camera on a PIDS alarm.
+
+**Thermal cameras** serve two distinct O&G purposes:
+1. **Night/low-light perimeter surveillance** — thermal imaging works in zero ambient light (unlike a standard camera, even with IR illumination, at long range), making it well-suited to wide-perimeter coverage where installing IR illuminators everywhere is impractical.
+2. **Early fire/hot-spot detection support** — thermal cameras can detect abnormal heat signatures (a developing hot spot, a flare-stack anomaly, an overheating piece of equipment) before a conventional fire/flame detector would trigger, which is genuinely useful as an early-warning aid — but per rule 1, this remains a *verification/monitoring* aid, not a certified fire-detection function, unless the specific thermal-detection product is itself certified for that purpose (some are, purpose-built fire-detection thermal cameras exist as a distinct certified product category — confirm with OEM whether the specified camera is one of these or a general-purpose thermal surveillance camera).
+
+**Process-area monitoring** (distinct from perimeter) uses CCTV to give control-room operators remote visual confirmation of process-area conditions without needing to physically walk the site — particularly valuable for flare-stack monitoring, tank-farm visual checks, and confirming conditions before authorising remote/manual interventions. This ties directly to SCADA's HMI (see the SCADA subsystem's `fundamentals/05-hmi-historian-alarm-management.md`) — CCTV views are commonly displayed alongside SCADA screens in the same control room.
+
+**Why this matters for design decisions:** the "is this camera a certified detection device or a general-purpose surveillance camera" question has to be asked explicitly for every thermal camera spec'd for a fire/hot-spot-detection purpose — don't let a general-purpose thermal surveillance camera get treated as a fire-detection system by default.
+
+**Formal reference:** IEC 62676 (general VSS), relevant fire-detection standards (e.g. EN 54 series, referenced in the PAGA subsystem for General Alarm) for the distinct certified-fire-detection-camera product category, PIDS-specific standards (confirm per OEM/product — no single unifying international PIDS standard).
