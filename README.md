@@ -7,7 +7,7 @@ A single [Claude Code Skill](https://docs.claude.com/en/docs/claude-code/skills)
 3. Checks each decision against the governing standards and the client spec.
 4. Helps produce the engineering deliverables for that stage (technical specification, compliance matrix, BOQ basis, etc.).
 
-**Who it's for:** consultants, PMCs, EPC contractors, and vendor engineers working on rail or oil & gas telecom subsystems — GSM-R, TETRA, PAGA, SCADA, and CCTV today, with fibre backbone and more being added to the same skill over time.
+**Who it's for:** consultants, PMCs, EPC contractors, and vendor engineers working on rail or oil & gas telecom subsystems — GSM-R, TETRA, PAGA, SCADA, CCTV, and transmission/fibre backbone today, with more being added to the same skill over time.
 
 ## Status
 
@@ -17,6 +17,7 @@ A single [Claude Code Skill](https://docs.claude.com/en/docs/claude-code/skills)
 - **PAGA** — built from public IEC 60849/EN 54/ISO 7240 voice-alarm standards knowledge and general PAGA design practice rather than a specific past project. Covers both rail (station/platform public address and evacuation alarm) and oil & gas (plant/offshore Public Address & General Alarm, including Fire & Gas/ESD integration, functional safety for the General Alarm function, and ATEX/IECEx hazardous-area equipment requirements) use cases. Also includes an 18-file fundamentals layer — deep-dive engineering explainers (SPL/STI acoustic theory, constant-voltage line and tap-loading calculations, amplifier redundancy, functional safety/SIL determination for General Alarm, F&G/ESD integration mechanics, fire-survival cabling, hazardous-area equipment certification, offshore/marine considerations, rail-specific design variations, and more, each with worked examples) so an engineer using this skill doesn't need to search the internet or find a mentor to understand the reasoning behind a decision, not just the decision sequence itself.
 - **SCADA** — built from public IEC 62443/IEC 61508-61511/IEC 60870-5/ISA-95 industrial-control standards knowledge and general SCADA design practice rather than a specific past project (though Harish plans to supply project-specific reference material — DMRC tunnel-ventilation SCADA integration experience — as a future gap-fill round). Covers both rail (tunnel-ventilation normal/fire-mode control, station M&E) and oil & gas (process control/ICSS, SIS/ESD interface boundary) use cases. Also includes a 16-file fundamentals layer — deep-dive engineering explainers (ISA-95 architecture layers, PLC/RTU/I/O fundamentals, communication protocols, IT/OT cybersecurity segmentation, the SIS/SCADA independence principle, tunnel-ventilation fire-mode control, EEMUA 191 alarm rationalisation, legacy migration/cutover methodology, and more, each with worked examples) so an engineer using this skill doesn't need to search the internet or find a mentor to understand the reasoning behind a decision, not just the decision sequence itself.
 - **CCTV** — built from public IEC 62676/ONVIF/IEC 60839 video-surveillance standards knowledge and general VSS design practice rather than a specific past project (open to a future gap-fill round the same way as SCADA). Covers both rail (station/platform/tunnel surveillance, train-borne CCTV/VRS) and oil & gas (perimeter security, process-area/thermal surveillance) use cases. Also includes a 14-file fundamentals layer — deep-dive engineering explainers (VSS architecture, camera-technology selection, ONVIF/codec protocols, bandwidth/storage sizing with a worked calculation, VCA/analytics and false-alarm management, the CCTV-as-verification-not-detection principle, hazardous-area camera certification, cybersecurity/vendor-compliance requirements, data-protection/retention, and more, each with worked examples) so an engineer using this skill doesn't need to search the internet or find a mentor to understand the reasoning behind a decision, not just the decision sequence itself.
+- **Transmission / Fibre Backbone** — built from public ITU-T/IEC/IEEE standards knowledge and general transport-network design practice rather than a specific past project (open to a future gap-fill round the same way as SCADA and CCTV). Covers both rail (trackside/tunnel backbone, station and depot rings) and oil & gas (plant rings, pipeline-corridor backbone, offshore links) use cases. Includes a 16-file fundamentals layer (transport layering, fibre and cable, link budgets, SDH/NG-SDH, packet transport, OTN/DWDM, protection and physical diversity, synchronisation, capacity dimensioning, rail and O&G routing, NMS/OAM, power, cybersecurity, testing, interfacing). Domain-unique thread: physical diversity is not logical diversity (the SRLG rule).
 
 All five are open to correction from practicing engineers — see [Contributing](#contributing).
 
@@ -40,13 +41,12 @@ No proprietary vendor documentation (Huawei, Nokia, or any other OEM's internal 
 
 ## Roadmap
 
-Subsystems already built (full stage sequences + fundamentals layer): **GSM-R, TETRA, PAGA, SCADA, CCTV**.
+Subsystems already built (full stage sequences + fundamentals layer): **GSM-R, TETRA, PAGA, SCADA, CCTV, Transmission**.
 
 Subsystems in the pool, not yet built — added one at a time as research data comes in:
 
 | Subsystem | Status |
 |---|---|
-| Fibre backbone / transmission (SDH/DWDM/OTN) | Not started |
 | PABX | Not started |
 | VSAT (incl. hub/DAMA-TDMA) | Not started |
 | Master clock / timing systems | Not started |
@@ -72,15 +72,16 @@ telecom-design-skills/
 │       │   ├── tetra/                same shape, 26 fundamentals files
 │       │   ├── paga/                 same shape, 18 fundamentals files
 │       │   ├── scada/                same shape, 16 fundamentals files
-│       │   └── cctv/                 same shape, 14 fundamentals files
+│       │   ├── cctv/                 same shape, 14 fundamentals files
+│       │   └── transmission/         same shape, 16 fundamentals files
 │       └── templates/
-│           ├── gsmr/, tetra/, paga/, scada/, cctv/  Deliverable templates (planned)
+│           ├── gsmr/, tetra/, paga/, scada/, cctv/, transmission/  Deliverable templates (planned)
 ├── docs/
 │   └── design-notes/                 Background on how this skill is designed
 └── CONTRIBUTING.md
 ```
 
-Five subsystems now exist (GSM-R, TETRA, PAGA, SCADA, CCTV) inside the single `tse` skill, each self-contained under its own `references/<subsystem>/` folder — see `docs/design-notes/design-philosophy.md` for the earlier per-skill design reasoning, most of which still applies at the subsystem-folder level. All five subsystems share the same stage/role intake shape (Concept → Tender → Engineering, Client/PMC/Consultant/Contractor/Vendor), a design-rules block (no unsourced OEM data, illustrative-figures caveat — now partly hoisted into the umbrella `SKILL.md`), and a `standards.md` pattern.
+Six subsystems now exist (GSM-R, TETRA, PAGA, SCADA, CCTV, Transmission) inside the single `tse` skill, each self-contained under its own `references/<subsystem>/` folder — see `docs/design-notes/design-philosophy.md` for the earlier per-skill design reasoning, most of which still applies at the subsystem-folder level. All six subsystems share the same stage/role intake shape (Concept → Tender → Engineering, Client/PMC/Consultant/Contractor/Vendor), a design-rules block (no unsourced OEM data, illustrative-figures caveat — now partly hoisted into the umbrella `SKILL.md`), and a `standards.md` pattern.
 
 ## Contributing
 

@@ -1,6 +1,6 @@
 ---
 name: tse
-description: Guides a rail or oil & gas telecom/instrumentation engineer through a subsystem design session end-to-end — concept/feasibility, tender-stage technical specification, and detailed post-award engineering. Acts as a senior telecom systems engineer walking a junior through the right sequence of decisions for the specific subsystem in play, checked against the governing standards for that subsystem. Currently covers GSM-R (railway GSM radio), TETRA (trunked PMR radio), PAGA (Public Address & General Alarm), SCADA (rail tunnel-ventilation/station M&E and O&G process control/ICSS), and CCTV (rail station/platform/tunnel/train-borne surveillance and O&G perimeter/process-area surveillance) in full depth, with more rail/O&G telecom subsystems (fibre backbone/transmission, PABX, VSAT, master clock/timing, security & access control, passenger information systems, marine/aero/VHF/UHF radio, station management systems, platform screen doors) being added to the same skill over time. Trigger this whenever the user is working on any rail or oil & gas telecom/instrumentation subsystem design, coverage/link-budget planning, capacity dimensioning, technical specifications, tender documents, compliance matrices, interface control documents, or BOQs — even when they name the subsystem generically ("public address system," "trunked radio," "railway radio network," "evacuation alarm," "plant siren system," "tunnel ventilation control," "process control system," "video surveillance," "security cameras") rather than by its formal name.
+description: Guides a rail or oil & gas telecom/instrumentation engineer through a subsystem design session end-to-end — concept/feasibility, tender-stage technical specification, and detailed post-award engineering. Acts as a senior telecom systems engineer walking a junior through the right sequence of decisions for the specific subsystem in play, checked against the governing standards for that subsystem. Currently covers GSM-R (railway GSM radio), TETRA (trunked PMR radio), PAGA (Public Address & General Alarm), SCADA (rail tunnel-ventilation/station M&E and O&G process control/ICSS), CCTV (rail station/platform/tunnel/train-borne surveillance and O&G perimeter/process-area surveillance), and transmission/fibre backbone (SDH/NG-SDH, packet transport, OTN/DWDM) in full depth, with more rail/O&G telecom subsystems (PABX, VSAT, master clock/timing, security & access control, passenger information systems, marine/aero/VHF/UHF radio, station management systems, platform screen doors) being added to the same skill over time. Trigger this whenever the user is working on any rail or oil & gas telecom/instrumentation subsystem design, coverage/link-budget planning, capacity dimensioning, technical specifications, tender documents, compliance matrices, interface control documents, or BOQs — even when they name the subsystem generically ("public address system," "trunked radio," "railway radio network," "evacuation alarm," "plant siren system," "tunnel ventilation control," "process control system," "video surveillance," "security cameras") rather than by its formal name.
 ---
 
 # Telecom System Engineering (TSE) Skill
@@ -24,8 +24,9 @@ Ask before going further, unless the user has already named it unambiguously:
 - **PAGA** — Public Address & General Alarm (IEC 60849/EN 54/ISO 7240) → `references/paga/GUIDE.md`
 - **SCADA** — rail tunnel-ventilation/station M&E SCADA and O&G process control/ICSS (IEC 62443, IEC 61508/61511, IEC 60870-5) → `references/scada/GUIDE.md`
 - **CCTV** — rail station/platform/tunnel/train-borne surveillance and O&G perimeter/process-area surveillance (IEC 62676, ONVIF, IEC 60839) → `references/cctv/GUIDE.md`
+- **Transmission / Fibre Backbone** — trunk fibre, SDH/NG-SDH, packet transport (MPLS-TP/Carrier Ethernet) and OTN/DWDM for rail corridors and O&G plant/pipeline networks (ITU-T G-series, IEC 60793/60794, IEEE 1588) → `references/transmission/GUIDE.md`
 
-**Planned/in the pool, not yet built** — if the user asks about one of these, say so plainly rather than improvising a design sequence from general knowledge: fibre backbone/transmission (SDH/DWDM/OTN), PABX, VSAT (incl. hub/DAMA-TDMA), master clock/timing systems, security & access control (perimeter/IDS/ACS), passenger information systems (PIDS/VEID/Passenger Help Points), marine/aeronautical/HF/UHF radio, station management systems, platform screen doors. This pool grows as Harish supplies research data per subsystem — each new one gets its own `references/<subsystem>/` folder built the same way as GSM-R/TETRA/PAGA/SCADA/CCTV.
+**Planned/in the pool, not yet built** — if the user asks about one of these, say so plainly rather than improvising a design sequence from general knowledge: PABX, VSAT (incl. hub/DAMA-TDMA), master clock/timing systems, security & access control (perimeter/IDS/ACS), passenger information systems (PIDS/VEID/Passenger Help Points), marine/aeronautical/HF/UHF radio, station management systems, platform screen doors. This pool grows as Harish supplies research data per subsystem — each new one gets its own `references/<subsystem>/` folder built the same way as GSM-R/TETRA/PAGA/SCADA/CCTV/transmission.
 
 **Q — Who is the user representing?** (same across every subsystem — ask once, applies for the rest of the session)
 - **Client** (asset owner — railway authority or O&G operator/investor)
@@ -55,9 +56,10 @@ skills/tse/
 │   ├── tetra/                     same shape, 26 fundamentals files
 │   ├── paga/                      same shape, 18 fundamentals files
 │   ├── scada/                     same shape, 16 fundamentals files
-│   └── cctv/                      same shape, 14 fundamentals files
+│   ├── cctv/                      same shape, 14 fundamentals files
+│   └── transmission/              same shape, 16 fundamentals files
 └── templates/
-    ├── gsmr/, tetra/, paga/, scada/, cctv/   deliverable templates (planned, per subsystem)
+    ├── gsmr/, tetra/, paga/, scada/, cctv/, transmission/   deliverable templates (planned, per subsystem)
 ```
 
 ## Status
